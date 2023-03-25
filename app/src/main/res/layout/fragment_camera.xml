@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/camera_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/view_finder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scaleType="fillStart">
+
+        <org.tensorflow.lite.examples.objectdetection.OverlayView
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.camera.view.PreviewView>
+
+    <TextView
+        android:id="@+id/detectedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/bottom_sheet_text_size"
+        android:textColor="@color/bottom_sheet_text_color"
+        app:layout_anchor="@id/bottom_sheet_layout"
+        app:layout_anchorGravity="top|center_horizontal"/>
+
+
+    <include
+        android:id="@+id/bottom_sheet_layout"
+        layout="@layout/info_bottom_sheet" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
